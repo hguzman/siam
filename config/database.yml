@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  username: root
+  password: usrio01
+
+development:
+  <<: *default
+  database: siam_development
+
+test:
+  <<: *default
+  database: siam_test
+
+production:
+  <<: *default
+  database: siam_production
+  username: siam
+  password: <%= ENV['CARSOK_DATABASE_PASSWORD'] %>
+
+
+
