@@ -1,41 +1,65 @@
+<div class="wrapper wrapper-content  animated fadeInRight">
 
+<div class="row">
+    <div class="col-md-8">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Indice de Aridez</h5>
+            </div>
+            <div class="ibox-content">
+                <p>
+                    <small>Indice de aridez en el departamento del Atlantico</small>  
 
-
-
-
-
-
-
-
-
-
-<div class="wrapper wrapper-content animated fadeInRight">
-    <div class="row">
-        <div class="col-lg-6">
-          <div id="map">
-            <div class="ol-toggle-options ol-unselectable"></div>
-          </div>
-          
-        </div>
-        <div class="col-lg-6">
-              <div id="wrapper">
-                  <div id="location"></div>
-                  <div id="scale">
-              </div>
-              <div id="nodelist">
-                  <em>Click on the map to get feature info</em>
-              </div>
-          
-        </div>
-
-        <div class="col-lg-12">
-            <div class="text-center m-t-lg">
-
-
+                </p>
+                <div class="google-map" id="map"></div>
             </div>
         </div>
     </div>
+
+    <div class="col-md-4">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Indice de Aridez</h5>
+            </div>
+            <div class="ibox-content">
+              <p>
+                <a href="http://192.168.3.31:8080/geoserver/cra/wms/kml?layers=cra:Indice_Aridez">Descargar Cartografia formato KML</a>
+              </p>
+                <p>
+                    <small>Indice de aridez en el departamento del Atlantico</small>  
+
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+<div class="col-md-12">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Atributos</h5>
+            </div>
+            <div class="ibox-content">
+              <div id="wrapper">
+                <div class="row">
+                  <div class="col-md-6" id="scale"></div>
+                  <div class="col-md-6" id="location"></div>
+                  <div class="col-md-12">
+                    <div id="nodelist">
+                        <em>Click en un poligono para obtener atributos</em>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+
+
+              </div>
+        </div>
+    </div>
 </div>
+</div>
+
 
 
 <% content_for :javascript do %>
@@ -48,8 +72,9 @@ var pureCoverage = false;
       // if this is just a coverage or a group of them, disable a few items,
       // and default to jpeg format
       var format = 'image/png';
-      var bounds = [901142.846788282, 1688573.2732064,
-                    920082.201008747, 1714701.33751661];                    
+      var bounds = [871786.4001, 1625755.3974,
+                    929943.3222, 1719999.9574];                    
+
       if (pureCoverage) {
         document.getElementById('filterType').disabled = true;
         document.getElementById('filter').disabled = true;
@@ -72,7 +97,7 @@ var pureCoverage = false;
           url: 'http://192.168.3.31:8080/geoserver/cra/wms',
           params: {'FORMAT': format,
                    'VERSION': '1.1.1',  
-                LAYERS: 'cra:municipios_atlantico',
+                LAYERS: 'cra:Indice_Aridez',
                 STYLES: '',
           }
         })
@@ -84,7 +109,7 @@ var pureCoverage = false;
           params: {'FORMAT': format, 
                    'VERSION': '1.1.1',
                    tiled: true,
-                LAYERS: 'cra:municipios_atlantico',
+                LAYERS: 'cra:Indice_Aridez',
                 STYLES: '',
           }
         })
@@ -132,7 +157,7 @@ var pureCoverage = false;
           evt.coordinate, viewResolution, view.getProjection(),
           {'INFO_FORMAT': 'text/html', 'FEATURE_COUNT': 50});
         if (url) {
-          document.getElementById('nodelist').innerHTML = '<iframe seamless src="' + url + '"></iframe>';
+          document.getElementById('nodelist').innerHTML = '<iframe class="col-md-12" src="' + url + '"></iframe>';
         }
       });
 
