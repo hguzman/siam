@@ -4,11 +4,11 @@
     <div class="col-md-8">
         <div class="ibox ">
             <div class="ibox-title">
-                <h5>Mapa: <%= @titulo %></h5>
+                <h5>Índice uso de agua</h5>
             </div>
             <div class="ibox-content">
                 <p>
-                    <small><%= @comentarios %></small>  
+                    <small>Indice de aridez en el departamento del Atlantico</small>  
 
                 </p>
                 <div class="google-map" id="map"></div>
@@ -23,7 +23,7 @@
             </div>
             <div class="ibox-content">
               <p>
-                <a href="http://190.60.237.68:8080/geoserver/cra/wms/kml?layers=<%= @layer %>">Descargar Cartografia formato KML</a>
+                <a href="http://192.168.3.31:8080/geoserver/cra/wms/kml?layers=cra:Indice_Uso_del_Agua">Descargar Cartografia formato KML</a>
               </p>
                 <p>
                     <small>Indice de aridez en el departamento del Atlantico</small>  
@@ -72,8 +72,8 @@ var pureCoverage = false;
       // if this is just a coverage or a group of them, disable a few items,
       // and default to jpeg format
       var format = 'image/png';
-      var bounds = <%= @bounds %>;                    
-
+      var bounds = [871786.4001, 1625755.3974,
+                    929943.3222, 1719999.9574];
       if (pureCoverage) {
         document.getElementById('filterType').disabled = true;
         document.getElementById('filter').disabled = true;
@@ -93,10 +93,10 @@ var pureCoverage = false;
       var untiled = new ol.layer.Image({
         source: new ol.source.ImageWMS({
           ratio: 1,
-          url: '<%= @url %>',
+          url: 'http://192.168.3.31:8080/geoserver/cra/wms',
           params: {'FORMAT': format,
                    'VERSION': '1.1.1',  
-                LAYERS: '<%= @layer %>',
+                LAYERS: 'cra:Indice_Uso_del_Agua',
                 STYLES: '',
           }
         })
@@ -104,11 +104,11 @@ var pureCoverage = false;
       var tiled = new ol.layer.Tile({
         visible: false,
         source: new ol.source.TileWMS({
-          url: 'http://190.60.237.68:8080/geoserver/cra/wms',
+          url: 'http://192.168.3.31:8080/geoserver/cra/wms',
           params: {'FORMAT': format, 
                    'VERSION': '1.1.1',
                    tiled: true,
-                LAYERS: '<%= @layer %>',
+                LAYERS: 'cra:Indice_Uso_del_Agua',
                 STYLES: '',
           }
         })

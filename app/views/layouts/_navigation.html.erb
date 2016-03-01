@@ -5,28 +5,47 @@
               
             </li>
 
-            <li class="<%= is_active_controller('home') %>">
+<!--             <li class="<%= is_active_controller('home') %>">
                 <a href=""><i class="fa fa-th-large"></i> <span class="nav-label" data-i18n="nav.dashboard">Dashboards</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse <%= is_active_controller('dashboards') %>">
                     <li class="<%= is_active_action('dashboard_1') %>"><%= link_to "Dashboard v.1", "#" %></li>
                     <li class="<%= is_active_action('dashboard_2') %>"><%= link_to "Dashboard v.2", "#" %></li>
                 </ul>
             </li>
-
+ -->
             <li class="<%= is_active_controller('hidric_resources') %>">
                 <a href=""><i class="fa fa-th-large"></i> <span class="nav-label" data-i18n="nav.dashboard">Recurso Hídrico</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse <%= is_active_controller('dashboards') %>">
-                    <li class="<%= is_active_action('indice_aridez') %>"><%= link_to "indice aridez", aridez_path %></li>
-                    <li class="<%= is_active_action('dashboard_2') %>"><%= link_to "Dashboard v.2", "#" %></li>
+                    <li class="<%= is_active_action('indice_aridez') %>"><%= link_to "Índice aridez", aridez_path %></li>
+                    <li class="<%= is_active_action('indice_uso_agua') %>"><%= link_to "Índice uso agua", usoagua_path %></li>
+                    <li class="<%= is_active_action('indice_regulacion_hidrica') %>"><%= link_to "Índice regulación hidrica", irhidrica_path %></li>
+                    <li class="<%= is_active_action('indice_vulnerabilidad_hidrica') %>"><%= link_to "Índice vulnerabilidad hidrica", ivhidrica_path %></li>
+                    <li class="<%= is_active_action('lindero_ronda_hidrica_mallorquin') %>"><%= link_to "Lindero ronda hidrica cienaga mallorquin", lrhmallorquin_path %></li>
+
+                    <li class="<%= is_active_action('lindero_ronda_hidrica_guajaro') %>"><%= link_to "Lindero ronda hidrica el guajaro", lrhguajaro_path %></li>
+
+                    
+                </ul>
+            </li>
+
+            <li class="<%= is_active_controller('risk_managements') %>">
+                <a href=""><i class="fa fa-th-large"></i> <span class="nav-label" data-i18n="nav.dashboard">Gestión del riesgo</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse <%= is_active_controller('dashboards') %>">
+                    <li class="<%= is_active_action('amenaza_erosion') %>"><%= link_to "Amenaza erosion", aerosion_path %></li>
+
+                    <li class="<%= is_active_action('amenzada_incendios_forestales') %>"><%= link_to "Amenaza incendio forestal", aincendio_path %></li>
+
                 </ul>
             </li>
 
 
-            <li class="<%= 'active' if current_page?('/home/minor') %>">
+
+<!--             <li class="<%= 'active' if current_page?('/home/minor') %>">
                 <%= link_to "/home/minor" do %>
                 <i class="fa fa-desktop"></i> <span class="nav-label">Minor page</span>
                 <% end %>
             </li>
+ -->            
         </ul>
 
     </div>

@@ -1,3 +1,5 @@
 Rails.application.config.assets.precompile += %w( home.js )
 Rails.application.config.assets.precompile += %w( hidric_resources.js )
 Rails.application.config.assets.precompile += %w( hidric_resources.css )
+Rails.application.config.assets.precompile += %w( risk_managements.css )
+Rails.application.config.assets.precompile += %w( risk_managements.js )
