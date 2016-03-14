@@ -9,6 +9,11 @@ Myapp::Application.routes.draw do
   get 'hidric_resources/indice_vulnerabilidad_hidrica', as: 'ivhidrica'
   get 'hidric_resources/lindero_ronda_hidrica_mallorquin', as: 'lrhmallorquin'
   get 'hidric_resources/lindero_ronda_hidrica_guajaro', as: 'lrhguajaro'
+  get 'hidric_resources/lindero_ronda_hidrica_luruaco', as: 'lrhluruaco'
+  get 'hidric_resources/lindero_ronda_hidrica_tocagua', as: 'lrhtocagua'
+  get 'hidric_resources/subzonas_hidrograficas', as: 'szhidrografica'
+  get 'hidric_resources/zonificacion_ambiental_atlantico', as: 'zaa'
+  get 'hidric_resources/zonificacion_ambiental_ordenamiento_costero_2007', as: 'zaoc2007'
 
 
 
